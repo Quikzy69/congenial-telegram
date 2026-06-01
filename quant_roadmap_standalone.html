@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quant Trading Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root {
+  --ct-primary: #1a1a18;
+  --ct-secondary: #6b6b68;
+  --ct-tertiary: #9b9b97;
+  --cb-primary: #ffffff;
+  --cb-secondary: #f5f5f2;
+  --cb-tertiary: #eeedea;
+  --cbr-tertiary: rgba(0,0,0,0.10);
+  --cbr-secondary: rgba(0,0,0,0.16);
+  --cbr-primary: rgba(0,0,0,0.28);
+  --rmd: 8px;
+  --rlg: 12px;
+  --pill-math-bg: #FAEEDA;
+  --pill-math-txt: #633806;
+  --pill-skill-bg: #EAF3DE;
+  --pill-skill-txt: #27500A;
+  --crit-bg: #FCEBEB;
+  --crit-txt: #791F1F;
+  --imp-bg: #FAEEDA;
+  --imp-txt: #633806;
+  --mod-bg: #EAF3DE;
+  --mod-txt: #27500A;
+  --ms-green: #1D9E75;
+  --page-bg: #eeedea;
+}
+[data-theme="dark"] {
+  --ct-primary: #f0efeb;
+  --ct-secondary: #a0a09a;
+  --ct-tertiary: #6b6b66;
+  --cb-primary: #1e1e1c;
+  --cb-secondary: #282826;
+  --cb-tertiary: #323230;
+  --cbr-tertiary: rgba(255,255,255,0.10);
+  --cbr-secondary: rgba(255,255,255,0.16);
+  --cbr-primary: rgba(255,255,255,0.28);
+  --pill-math-bg: #2d1e06;
+  --pill-math-txt: #FAC775;
+  --pill-skill-bg: #0f1f06;
+  --pill-skill-txt: #C0DD97;
+  --crit-bg: #280808;
+  --crit-txt: #F7C1C1;
+  --imp-bg: #2d1e06;
+  --imp-txt: #FAC775;
+  --mod-bg: #0f1f06;
+  --mod-txt: #C0DD97;
+  --ms-green: #5DCAA5;
+  --page-bg: #141412;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--page-bg);min-height:100vh;padding:2rem 1rem;transition:background 0.2s}
+.page{max-width:740px;margin:0 auto}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding:0 2px}
+.page-title{font-size:22px;font-weight:500;color:var(--ct-primary)}
+.page-sub{font-size:13px;color:var(--ct-secondary);margin-top:3px}
+.theme-btn{width:34px;height:34px;border-radius:var(--rmd);border:0.5px solid var(--cbr-secondary);background:var(--cb-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ct-secondary);font-size:16px;transition:all 0.15s;flex-shrink:0}
+.theme-btn:hover{background:var(--cb-secondary);color:var(--ct-primary)}
+.rm{background:var(--cb-primary);border-radius:16px;border:0.5px solid var(--cbr-tertiary);padding:1.75rem;margin-bottom:1rem}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
+.sc{background:var(--cb-secondary);border-radius:var(--rmd);padding:12px}
+.sl{font-size:11px;color:var(--ct-secondary);margin-bottom:4px}
+.sv{font-size:22px;font-weight:500;color:var(--ct-primary)}
+.ss{font-size:11px;color:var(--ct-tertiary);margin-top:2px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab{padding:6px 14px;font-size:13px;border:0.5px solid var(--cbr-secondary);border-radius:var(--rmd);cursor:pointer;background:transparent;color:var(--ct-secondary);transition:all 0.15s;font-family:inherit}
+.tab:hover{background:var(--cb-secondary);color:var(--ct-primary)}
+.tab.active{background:var(--cb-primary);color:var(--ct-primary);border-color:var(--cbr-primary);font-weight:500;box-shadow:0 0 0 2px var(--cbr-tertiary)}
+.card{background:var(--cb-primary);border:0.5px solid var(--cbr-tertiary);border-radius:var(--rlg);padding:1.25rem;margin-bottom:12px}
+.ph{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.badge{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0}
+.ptitle{font-size:15px;font-weight:500;color:var(--ct-primary)}
+.psub{font-size:12px;color:var(--ct-secondary);margin-top:2px}
+.body-txt{font-size:13px;color:var(--ct-secondary);line-height:1.65;margin-bottom:14px;padding-bottom:14px;border-bottom:0.5px solid var(--cbr-tertiary)}
+.slbl{font-size:10px;font-weight:500;color:var(--ct-tertiary);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 7px}
+.book-row{padding:8px 0;border-bottom:0.5px solid var(--cbr-tertiary)}
+.book-row:last-child{border-bottom:none}
+.btitle{font-size:13px;font-weight:500;color:var(--ct-primary)}
+.bauthor{font-weight:400;color:var(--ct-secondary)}
+.bnote{font-size:12px;color:var(--ct-secondary);line-height:1.55;margin-top:3px}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px}
+.pill{font-size:12px;padding:3px 9px;border-radius:999px;font-family:inherit}
+.pm{background:var(--pill-math-bg);color:var(--pill-math-txt)}
+.ps{background:var(--pill-skill-bg);color:var(--pill-skill-txt)}
+.pbox{background:var(--cb-secondary);border-radius:var(--rmd);padding:10px 12px;margin-top:12px}
+.plbl{font-size:10px;font-weight:500;color:var(--ct-tertiary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.ptxt{font-size:13px;color:var(--ct-primary);line-height:1.5}
+.ms{font-size:12px;color:var(--ct-secondary);margin-top:6px;display:flex;align-items:flex-start;gap:6px}
+.ms i{color:var(--ms-green);font-size:14px;flex-shrink:0;margin-top:1px}
+.gap-card{background:var(--cb-primary);border:0.5px solid var(--cbr-tertiary);border-radius:var(--rlg);padding:1.25rem;margin-bottom:10px}
+.gap-title{font-size:14px;font-weight:500;color:var(--ct-primary);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.gap-body{font-size:13px;color:var(--ct-secondary);line-height:1.65}
+.gap-tag{font-size:11px;padding:2px 8px;border-radius:999px}
+.crit{background:var(--crit-bg);color:var(--crit-txt)}
+.imp{background:var(--imp-bg);color:var(--imp-txt)}
+.mod{background:var(--mod-bg);color:var(--mod-txt)}
+.gaps-intro{font-size:13px;color:var(--ct-secondary);line-height:1.65;margin-bottom:1rem;padding:12px;background:var(--cb-secondary);border-radius:var(--rmd)}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Quant Trading Roadmap</div>
+      <div class="page-sub">Small-cap swing trading · 12–18 months · 8–12 hrs/week</div>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <i class="ti ti-moon-stars" id="theme-icon"></i>
+    </button>
+  </div>
+
+  <div class="rm">
+    <div class="sgrid">
+      <div class="sc"><div class="sl">Core phases</div><div class="sv">9</div><div class="ss">phases 0–8</div></div>
+      <div class="sc"><div class="sl">Supplementary</div><div class="sv">5</div><div class="ss">previously missing</div></div>
+      <div class="sc"><div class="sl">Projects</div><div class="sv">11</div><div class="ss">one per phase</div></div>
+      <div class="sc"><div class="sl">Books</div><div class="sv">17</div><div class="ss">in reading order</div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="show('phases',this)">Phases</button>
+      <button class="tab" onclick="show('gaps',this)">What was missing</button>
+      <button class="tab" onclick="show('books',this)">Books</button>
+      <button class="tab" onclick="show('projects',this)">Projects</button>
+      <button class="tab" onclick="show('math',this)">Maths</button>
+    </div>
+
+    <div id="v-phases"></div>
+    <div id="v-gaps" style="display:none"></div>
+    <div id="v-books" style="display:none"></div>
+    <div id="v-projects" style="display:none"></div>
+    <div id="v-math" style="display:none"></div>
+  </div>
+</div>
+
+<script>
+const P=[
+{num:0,title:"Setup & orientation",weeks:"Weeks 1–2",bg:"#F1EFE8",tc:"#2C2C2A",
+body:"Before any learning begins, eliminate every environmental obstacle. This phase takes two days maximum — its purpose is to ensure no future phase is blocked by a broken Python installation, a missing API key, or the absence of somewhere to write ideas. The hypothesis card at the end proves you can structure an idea before you can test one, which is the discipline everything else is built on.",
+books:[{t:"Quantitative Trading Ch.1–2",a:"Ernest Chan",n:"Read for orientation only — these chapters show you the complete landscape of what's coming. Don't try to absorb or memorise. Just map the territory so nothing in later phases surprises you."}],
+math:[],
+skills:["Anaconda + Python install","Jupyter Notebook running","Alpaca paper trading account + API keys","QuantConnect free account","eToro API key from developer portal","Hypothesis Journal spreadsheet created"],
+proj:"Write your first hypothesis card in the journal",
+ms:"Python runs without errors. Alpaca paper account active. One complete hypothesis card written — mechanism clearly stated."},
+
+{num:1,title:"Python for finance",weeks:"Weeks 3–8",bg:"#E6F1FB",tc:"#042C53",
+body:"Python is the standard language of quantitative research — not because it's the fastest, but because its data manipulation ecosystem (pandas, numpy, scipy) is unmatched for financial data workflows. The specific skills here are what you'll use every single day for years. Web development, object-oriented design patterns, and advanced Python topics are noise at this stage. The most important conceptual shift: never loop over rows. Everything is done vectorised across the entire DataFrame at once — this is how professional quant code is written and how you avoid the subtle date-alignment bugs that loops introduce.",
+books:[
+{t:"Python for Finance Ch.1–8",a:"Yves Hilpisch",n:"Your primary technical reference for this phase and the next. Ch. 4–6 cover pandas for financial data specifically — mark these heavily. Skip all options pricing content; you won't need it for years. Keep this book on your desk through Phase 3."},
+{t:"Naked Statistics",a:"Charles Wheelan",n:"Run one chapter per day alongside Python. The most readable statistics book written — builds the statistical intuition that Phase 2 formalises. The chapters on correlation, regression, and inference are the most important for your purposes."}],
+math:["Mean and std — daily vol = std of daily returns","Normal distribution — 68-95-99.7 rule","Correlation — foundation of all signal evaluation","Annualisation: daily std × √252"],
+skills:["Kaggle free Python course (7 lessons, 3 days)","pandas: rolling(), shift(), pct_change(), resample(), merge(), fillna()","numpy: vectorised ops, np.where(), boolean masking","matplotlib: three-panel chart (price, volume, signal)","yfinance: adjusted OHLCV download","Log returns vs simple returns — when each is appropriate"],
+proj:"Data pipeline script: 50 tickers, 5 computed features, clean MultiIndex DataFrame, three-panel chart",
+ms:"Script runs on any 50 tickers without errors. You can explain every line."},
+
+{num:2,title:"Statistics & mathematics",weeks:"Weeks 8–14",bg:"#FAEEDA",tc:"#412402",
+body:"Without statistics, you cannot distinguish a real signal from a coincidence in historical data. This is the most commonly skipped phase and the one that costs the most. The hypothesis testing framework you build here is applied to every signal you ever test for the rest of your career as a quant researcher — it is the single most reused piece of knowledge in this entire roadmap. Work through each concept in the order listed and immediately apply it to your Phase 1 data pipeline output. Statistics learned in the context of real financial data sticks. Statistics studied abstractly evaporates within a week.",
+books:[
+{t:"Statistics Ch.1–26",a:"Freedman, Pisani & Purves",n:"The clearest statistics textbook written. Berkeley-level rigour without heavy notation. Ch. 26–29 on hypothesis testing are the most important — read these twice. This is the text that makes the IC testing framework feel natural rather than mechanical."},
+{t:"An Intro to Statistical Learning Ch.1–2",a:"James et al.",n:"Free PDF at statlearning.com. Read the introduction and overview now to understand where the maths is heading. Return to Ch. 3 (linear regression) in Phase 6 and later chapters when ready for ML methods."}],
+math:["Probability: P(A), P(A|B), expected value","t-statistic and p-value — signal significance","Type I/II errors — false positives and false negatives","Multiple comparisons problem — why 50 tests inflates discoveries","Bonferroni correction — threshold ÷ number of tests","Spearman rank correlation — the IC formula","Stationarity — why you use returns not prices","Autocorrelation — momentum vs mean reversion statistically"],
+skills:["scipy.stats: ttest_ind(), spearmanr()","Rolling IC calculation cross-sectionally","Return distribution analysis: histograms, QQ plots","Interpreting IC: >0.02 weak, >0.05 solid, >0.10 check for errors"],
+proj:"Signal sanity checker function: t-stat, p-value, IC, IC t-stat, win rate, histogram — apply to volume ratio signal",
+ms:"Function works on any signal/return pair. You can explain every output number in plain English."},
+
+{num:3,title:"Market structure & data",weeks:"Weeks 12–18",bg:"#EAF3DE",tc:"#173404",
+body:"Understanding what financial data actually represents is more important than knowing how to manipulate it. Three concepts will change how you interpret every future backtest: survivorship bias (stocks that went bankrupt aren't in your data, catastrophically inflating small-cap backtests), look-ahead bias (using information that wouldn't have been available at trade time), and bid-ask spread (in small-caps, the round-trip cost can be 1–2%, consuming your entire expected return). These are invisible in your data — which is what makes them dangerous. You have to know to look for them, because they will not announce themselves.",
+books:[
+{t:"Trading and Exchanges Ch.1–6, 13",a:"Larry Harris",n:"The market microstructure bible. Ch. 1–6 cover how orders actually work and what the bid-ask spread represents economically. Ch. 13 covers illiquid markets specifically — directly applicable to small-caps. Don't read the whole book now, just these chapters."},
+{t:"Inside the Black Box",a:"Rishi Narang",n:"Full read, ~200 pages, one week. This gives you the complete mental model of a systematic strategy before you start building components — which prevents the common mistake of building parts that don't fit together properly. The most accessible explanation of how a professional quant fund actually works."}],
+math:[],
+skills:["Survivorship bias — what it is and how to partially mitigate it","Look-ahead bias — always .shift(1) before computing forward returns","Bid-ask spread modelling — 0.3% round-trip minimum for small-caps","Point-in-time data — earnings announcement date vs report date","Adjusted vs unadjusted prices — always use adjusted for returns","Data sources: yfinance vs Polygon vs FMP vs FINRA short interest"],
+proj:"Universe builder: filtered small-cap universe (80–150 stocks), 3 years clean data, every filter documented with a reason",
+ms:"Clean universe produced. Each filter explained and documented. Data quality issues logged, not silently dropped."},
+
+{num:4,title:"Thesis formation",weeks:"Weeks 16–22",bg:"#EEEDFE",tc:"#26215C",
+body:"This is the hardest phase to teach because it's a way of thinking rather than a technique. The goal is to build one mental habit: when you observe something in the market, you ask 'who is causing this, and why?' before touching any data. Every durable market inefficiency has a structural reason it persists — if it were easy to exploit at scale, institutional capital would have eliminated it. The edges accessible to retail traders survive because they're too illiquid, too small, or too volatile for institutions to trade at scale. Behavioural finance gives you the mechanism library; academic papers give you the evidence base.",
+books:[
+{t:"Beyond Greed and Fear",a:"Hersh Shefrin",n:"The most directly applicable behavioural finance book. Each chapter takes one bias and shows exactly how it appears in stock price data. Read with your hypothesis journal open — every chapter should generate at least one hypothesis card entry."},
+{t:"Thinking, Fast and Slow",a:"Daniel Kahneman",n:"Not a trading book but the foundation. After each chapter on a bias, ask: where does this appear in small-cap price behaviour? The anchoring, availability, and overconfidence chapters are the most directly applicable to your strategy type."},
+{t:"Finding Alphas Ch.1–6",a:"Tulchinsky / WorldQuant",n:"The closest any book comes to explicitly teaching the ideation process. The 'Alpha Design' and 'How to Develop an Alpha' chapters explain WorldQuant's internal workflow from observation to testable signal. Read after Shefrin and Kahneman."},
+{t:"Efficiently Inefficient Ch.1, 4, 6",a:"Lasse Heje Pedersen",n:"For each strategy chapter, extract: what is the mechanism, and what would make this edge disappear? That question structure is the thesis formation process. Ch. 4 covers equity momentum and value; Ch. 6 covers quantitative equity."}],
+math:[],
+skills:["Weekly paper habit: one anomaly from SSRN or alphaarchitect.com each week","Five foundational papers: Jegadeesh, Bernard & Thomas, Sloan, Asquith, 101 Alphas","Reading papers for mechanism — not to copy strategies","Generating variations from a known mechanism","Hypothesis card discipline — mechanism must precede data"],
+proj:"Five complete hypothesis cards: ≥2 from own observation, ≥2 from papers, ≥1 behavioural mechanism",
+ms:"Five cards meeting all requirements. One circled as priority. You can explain each mechanism in one sentence without notes."},
+
+{num:5,title:"Backtesting",weeks:"Weeks 20–30",bg:"#FAECE7",tc:"#4A1B0C",
+body:"Backtesting is not about finding impressive numbers — it is about disproving ideas as quickly and cheaply as possible. This reframing matters enormously. If you treat backtesting as optimisation (find parameters that maximise Sharpe), you will systematically fool yourself into thinking you have a strategy when you have a backtest. If you treat it as a scientific process (collect evidence that would make me reject this hypothesis), you will build things that work. The three strategies here are sequenced deliberately: the MA crossover teaches mechanics, cross-sectional momentum teaches multi-stock long-short construction, and your hypothesis tests independent application.",
+books:[
+{t:"Quantitative Trading (full)",a:"Ernest Chan",n:"Read cover to cover now. Ch. 3–6 cover backtesting, metrics, and money management with worked examples. The Kelly criterion section is particularly important. This is the most directly relevant book in the roadmap to your specific goal."},
+{t:"Algorithmic Trading Ch.1–4",a:"Ernest Chan",n:"Each chapter introduces a strategy type — momentum, mean reversion, pairs trading — with its mechanism explained alongside the implementation. Focus on the logic of why each strategy should work more than on the specific code examples."}],
+math:["Sharpe ratio: mean_excess ÷ std × √252","Sortino: downside deviation only","Max drawdown: (equity - cummax) / cummax","Calmar: annualised return / max drawdown","Information ratio: excess return / tracking error","Rolling Sharpe — detecting strategy decay","Transaction cost model: spread + commission + impact ≥ 0.3% round-trip for small-caps"],
+skills:["Manual vectorised backtest in pandas — .shift(1) for execution","VectorBT — rapid signal variation testing","QuantConnect / LEAN — survivorship-bias-free validation","In-sample / holdout discipline — 2022–present does not exist yet","Year-by-year breakdown — mandatory for every backtest"],
+proj:"Three backtests: MA crossover, cross-sectional momentum, your IC-tested hypothesis",
+ms:"All three complete with full metrics, year-by-year breakdown, costs modelled. Hypothesis IC-tested and passed or replaced."},
+
+{num:6,title:"Feature engineering",weeks:"Weeks 28–38",bg:"#E1F5EE",tc:"#04342C",
+body:"Features are the vocabulary of quantitative research. This phase builds your personal feature library through IC testing — the metric that tells you whether a signal has predictive content before you spend time on a full backtest. For every feature you build, compute the IC first. Mean IC > 0.03 consistently across dates means the feature has predictive content; near zero means no amount of strategy engineering will save it. The holdout test at the end of this phase is the most important moment in the roadmap — the first time you run your research against data it never touched. Be completely honest about what it shows.",
+books:[
+{t:"ML for Algo Trading Ch.1–7",a:"Stefan Jansen",n:"The most practical feature engineering book available. Ch. 2 covers data sourcing; Ch. 4 covers feature engineering specifically; Ch. 6 covers alpha factor research with Alphalens. Work through the free GitHub notebooks alongside each chapter — they are often more instructive than the text itself."},
+{t:"What Works on Wall Street",a:"James O'Shaughnessy",n:"Not a coding book — read it for the empirical results. Fifty years of data on which stock characteristics predicted returns across market cap bands. The small-cap sections are directly relevant. Most importantly: it shows which combinations of features work together rather than just single factors."}],
+math:["Vectors and matrices — financial data as arrays","Dot products — basis of correlation computation","OLS regression — cross-sectional signal to return relationship","Factor model: return = β × factor + α + noise","Fama-French attribution — is your alpha real?","PCA concept (3Blue1Brown on YouTube, not a textbook)"],
+skills:["Build 10+ features across 5 categories (price, volume, vol, fundamental, sentiment)","IC test every feature before backtesting","Cross-sectional z-scoring and winsorisation","Composite signal: equal-weight z-scored features ranked","Holdout test: run 2022–present for the first time"],
+proj:"Feature library spreadsheet (≥10 features) + composite model backtest + first holdout test",
+ms:"≥10 features IC-tested. ≥3 pass. Composite backtest complete. Holdout run and documented honestly — do not adjust based on what holdout shows."},
+
+{num:7,title:"Portfolio construction",weeks:"Weeks 36–44",bg:"#FBEAF0",tc:"#4B1528",
+body:"A strong signal in a poorly constructed portfolio loses money. Portfolio construction — how much of each stock to hold, how often to rebalance, and how to limit damage when things go wrong — is as important as signal quality. Most retail quants underestimate this layer because they're focused on alpha. Volatility targeting is the core principle: size positions so each contributes equal risk, not equal dollars. A volatile small-cap should have a smaller position than a calm one. Factor neutralisation is the other major concept: without it, your strategy may be inadvertently running a market beta bet that makes your returns dependent on conditions unrelated to your signal.",
+books:[
+{t:"Systematic Trading",a:"Robert Carver",n:"The best practical guide to portfolio construction for a retail trader. His treatment of volatility targeting, position sizing, and signal combination is the most accessible available. Open-source Python code (pysystemtrade) implements the entire framework — book plus code is a complete self-study resource."},
+{t:"Efficiently Inefficient Ch.1, 4, 6",a:"Lasse Heje Pedersen",n:"Re-read these chapters now. Having built a complete strategy, the portfolio-level discussion will mean something different than it did in Phase 4. The section on combining factors is directly applicable to your composite model."}],
+math:["Portfolio variance: w^T Σ w","Diversification: uncorrelated signals add √2 improvement","Covariance matrix — what it captures","Kelly criterion: f = (bp - q) / b","Half-Kelly / quarter-Kelly in practice — why full Kelly creates unacceptable drawdowns"],
+skills:["Volatility targeting: size = target_vol / stock_vol / n_positions","Maximum position size: 5% per stock","Turnover constraint: only rebalance if rank changed > 20%","Market beta check: rolling 60-day regression on SPY","Drawdown stop: reduce 50% if 20-day return < -10%","Monthly returns heatmap and full attribution"],
+proj:"Risk-managed portfolio: vol targeting, exposure limits, monthly heatmap, long/short attribution, factor exposure report",
+ms:"Full risk-managed system with all components. You can explain every parameter and the reason it's set where it is."},
+
+{num:8,title:"Paper trading & live",weeks:"Weeks 42–52+",bg:"#E6F1FB",tc:"#042C53",
+body:"The transition from backtest to live trading is where every hidden assumption in your model becomes visible. Backtest fills happen at theoretical prices; live fills happen at whatever the market gives you. Backtest code runs perfectly; live code crashes at 9pm. Paper trading for 60–90 days is not a rehearsal — it's a debugging exercise where every discrepancy between live P&L and backtest expectation is a research question. The answers to those questions are often more valuable than anything in the original backtest, because they reveal what your model assumed that wasn't true.",
+books:[
+{t:"Algorithmic Trading Ch.7–9",a:"Ernest Chan",n:"Live trading infrastructure, execution, and risk management specifically for retail live systems. Chan addresses the practical problems of running a strategy from a retail account — more relevant than institutional execution literature at this stage."},
+{t:"Advances in Financial ML Ch.11–16",a:"Marcos López de Prado",n:"Now ready to absorb these fully. Ch. 11 on backtest statistics shows how to adjust for multiple comparisons systematically. Ch. 4–6 on feature importance are also worth reading now that you have a complete feature library to evaluate. Dense but foundational."}],
+math:[],
+skills:["Daily automation script: data → features → signals → orders → log","eToro API (IsBuy: true/false) or Alpaca Python SDK","Execution log: every order with intended price, fill price, slippage, timestamp","Live IC monitoring: compare live fills to forward returns weekly","Rolling Sharpe decay detection in real time","Error handling: API failures, rate limits, missing tickers, order rejections"],
+proj:"Live paper trading system running for 60+ days with full execution log",
+ms:"60 days of clean logs. Written comparison of live vs backtest. Evidence-based decision: deploy real capital or return to Phase 5."}
+];
+
+const GAPS=[
+{title:"Execution science",tag:"critical",tagcls:"crit",
+body:"Most curricula give execution a few paragraphs. This is a mistake — execution quality (the difference between your intended fill price and your actual fill price) is a direct drag on performance that compounds across every trade. For small-cap strategies, poor execution can eliminate a genuine signal entirely. Key areas: order types (market, limit, market-on-close, VWAP), market impact models (square root model: impact ≈ σ × √(Q/ADV)), realistic slippage assumptions for daily-bar backtests, and how execution timing affects strategy design. Study concepts after Phase 3, implement in Phase 8."},
+{title:"Factor attribution (Fama-French)",tag:"critical",tagcls:"crit",
+body:"Without formal factor attribution you cannot prove whether your returns are genuine alpha or just market beta / size beta / momentum beta dressed up in complexity. The three-factor model decomposes strategy returns into market, size (SMB), value (HML), and alpha components. If your alpha t-stat is below 2.0 after factor decomposition, your strategy may not be generating real alpha. Get the Fama-French factor data free from Ken French's website. Run an OLS regression of your strategy returns on the factors. This is a mandatory check before deploying real capital. Study alongside Phase 7."},
+{title:"UK tax & regulation",tag:"critical",tagcls:"crit",
+body:"CFD profits (how eToro shorts work) are taxed as income at your marginal rate (up to 45%), not as capital gains at 18–24%. For higher-rate taxpayers running an active short strategy on eToro, this alone can make the strategy unviable. CGT allowance is £3,000 annually (2024/25). Gains inside a Stocks and Shares ISA are entirely CGT-free — prioritise ISA capacity for long positions. IBKR offers an ISA and real stock borrow (taxed as CGT). eToro does not currently offer a native UK ISA. Record keeping: date, asset, shares, price paid and received — keep for 6 years."},
+{title:"Monte Carlo & statistical validity",tag:"important",tagcls:"imp",
+body:"A single backtest Sharpe number is a point estimate with wide uncertainty bounds. Bootstrap resampling (resample blocks of returns with replacement, compute Sharpe for each, report the 5th–95th percentile range) quantifies how precisely your backtest has estimated the true Sharpe. If the 5th percentile of your bootstrap distribution is negative, the strategy is not statistically robust enough to deploy. Walk-forward testing (multiple expanding train/test windows rather than a single split) gives a longer realistic out-of-sample track record. Study alongside Phase 5."},
+{title:"Strategy capacity, psychology & shutdown",tag:"important",tagcls:"imp",
+body:"Every small-cap strategy has a capacity limit — the maximum capital before market impact erodes the edge. The square root model gives an estimate: at 5% of ADV in a 2%-vol stock, impact ≈ 1% per trade, which may consume your entire expected return. On psychology: almost never override the algorithm. Acceptable overrides are structural (data feed broken, trading halt, confirmed code bug). Define shutdown criteria before going live: rolling 3-month Sharpe < 0 for two consecutive quarters, IC negative on rolling 60-day basis for 3 months. The worst time to define these is when you're down 15% and emotional."},
+{title:"Alternative data",tag:"moderate",tagcls:"mod",
+body:"Alternative data — beyond standard OHLCV and financial statements — is increasingly mainstream in institutional research. Available to retail traders: SEC EDGAR filings (Form 4 insider transactions, Form 13F institutional holdings, 8-K material events, all free), news sentiment scores (via Polygon.io or EODHD news API), and short interest (monthly free from FINRA, near-real-time from Ortex or S3 Partners ~$50/month). Insider buying in small-caps is a well-documented signal. Positive news in neglected small-caps with low analyst coverage diffuses slowly and is worth studying as a feature. Begin exploring in Phase 6, deepen after Phase 8."}
+];
+
+const BOOKS=[
+{t:"Quantitative Trading (2nd ed.)",a:"Ernest Chan",ph:"Phase 0–5",d:"Complete retail quant overview from ideation to live trading. The most directly relevant single book to your goal."},
+{t:"Python for Finance (2nd ed.)",a:"Yves Hilpisch",ph:"Phase 1",d:"Technical Python reference for financial data. Ch. 4–6 on pandas are most important. Keep on desk through Phase 3."},
+{t:"Naked Statistics",a:"Charles Wheelan",ph:"Phase 1–2",d:"Most readable statistics book written. One chapter per day alongside Python. Builds intuition Phase 2 formalises."},
+{t:"Statistics",a:"Freedman, Pisani & Purves",ph:"Phase 2",d:"Berkeley-level rigour without heavy notation. Ch. 26–29 on hypothesis testing — read twice."},
+{t:"An Intro to Statistical Learning",a:"James et al.",ph:"Phase 2, 6",d:"Free PDF at statlearning.com. Ch. 1–2 now; Ch. 3 in Phase 6; later chapters when ready for ML."},
+{t:"Trading and Exchanges",a:"Larry Harris",ph:"Phase 3",d:"Market microstructure bible. Ch. 1–6 and Ch. 13 only. Changes how you read every piece of price/volume data."},
+{t:"Inside the Black Box",a:"Rishi Narang",ph:"Phase 3",d:"Full read. The complete mental model of a systematic strategy — the best orientation book in the list."},
+{t:"Beyond Greed and Fear",a:"Hersh Shefrin",ph:"Phase 4",d:"Behavioural biases mapped to price patterns. Read with hypothesis journal open."},
+{t:"Thinking, Fast and Slow",a:"Daniel Kahneman",ph:"Phase 4",d:"Foundation for understanding why markets are exploitable. Not a trading book but essential."},
+{t:"Finding Alphas",a:"Tulchinsky / WorldQuant",ph:"Phase 4",d:"WorldQuant's ideation process. Ch. 1–6. The 'Alpha Design' chapter is the most directly useful."},
+{t:"Efficiently Inefficient",a:"Lasse Heje Pedersen",ph:"Phase 4–7",d:"Why strategies work and what would make them disappear. Ch. 1, 4, 6. Re-read in Phase 7."},
+{t:"Algorithmic Trading",a:"Ernest Chan",ph:"Phase 5–8",d:"Strategy types with mechanisms (Ch. 1–4), then live execution (Ch. 7–9). Natural sequel to book one."},
+{t:"ML for Algo Trading (2nd ed.)",a:"Stefan Jansen",ph:"Phase 6",d:"Best practical feature engineering book. Work through the free GitHub notebooks alongside each chapter."},
+{t:"What Works on Wall Street",a:"James O'Shaughnessy",ph:"Phase 6",d:"50-year empirical test of which stock characteristics predict returns. Small-cap sections directly relevant."},
+{t:"Systematic Trading",a:"Robert Carver",ph:"Phase 7",d:"Best portfolio construction guide for retail traders. Open-source pysystemtrade code implements everything."},
+{t:"Advances in Financial ML",a:"Marcos López de Prado",ph:"Phase 8+",d:"Rigorous backtest validation. Ch. 11–16 after paper trading begins. Dense but foundational."},
+{t:"Expected Returns",a:"Antti Ilmanen (AQR)",ph:"Phase 8+",d:"The encyclopaedia of return premia. Long-term reference — use it by chapter, not cover to cover."}
+];
+
+const PROJS=[
+{n:0,t:"First hypothesis card",ph:"Phase 0",d:"Structure one idea in the journal format before any code. Mechanism must be clearly stated. Doesn't need to be good — needs to exist."},
+{n:1,t:"Data pipeline script",ph:"Phase 1",d:"50 tickers, 5 computed features (return, vol, vol ratio, MA distance, momentum), clean MultiIndex DataFrame, three-panel chart for any ticker."},
+{n:2,t:"Signal sanity checker",ph:"Phase 2",d:"Reusable function: t-stat, p-value, IC, IC t-stat, win rate, histogram. Apply to volume ratio signal with 5-day forward returns."},
+{n:3,t:"Universe builder",ph:"Phase 3",d:"80–150 small-cap stocks, 3 years clean data, every filter documented with a reason, data quality issues logged."},
+{n:4,t:"Five hypothesis cards",ph:"Phase 4",d:"≥2 from observation, ≥2 from papers, ≥1 behavioural mechanism. All specific enough for someone else to implement. One circled."},
+{n:"5a",t:"MA crossover backtest",ph:"Phase 5",d:"20/50 MA crossover, long only, costs modelled. Year-by-year breakdown. Learn why it fails after costs."},
+{n:"5b",t:"Cross-sectional momentum",ph:"Phase 5",d:"Weekly rank by 20d return, long top 20%, short bottom 20%. Full attribution: combined, long book, short book."},
+{n:"5c",t:"Your hypothesis backtest",ph:"Phase 5",d:"IC-test first. IC ≥ 0.02: full backtest (in-sample 2015–2021 only). If not: next card. Never force a signal."},
+{n:6,t:"Feature library + composite",ph:"Phase 6",d:"≥10 features IC-tested, spreadsheet documentation. Composite from top 3. Holdout (2022–present) run for first time."},
+{n:7,t:"Risk-managed portfolio",ph:"Phase 7",d:"Vol targeting, position limits, turnover constraint, beta check, monthly heatmap, long/short attribution."},
+{n:8,t:"Live paper trading system",ph:"Phase 8",d:"Daily automation: data → signals → orders → API → execution log. Run 60+ days. Written live vs backtest comparison."}
+];
+
+const MATH=[
+{ph:"Phase 1",t:"Foundations (30 min/day parallel)",items:["Mean and std: daily vol = std of daily returns","Normal distribution: bell curve, 68-95-99.7 rule","Correlation: foundation of all signal evaluation","Annualisation: daily std × √252, daily return × 252"]},
+{ph:"Phase 2",t:"Hypothesis testing (core)",items:["Expected value: probability of win × avg win − probability of loss × avg loss","Fat tails: why return distributions are not normal","t-statistic: how many standard errors from zero?","p-value: probability of this result if the null were true","Type I error (false positive) and Type II error (false negative)","Multiple comparisons: testing 50 signals inflates false positives 50×","Bonferroni correction: threshold ÷ number of tests","Spearman rank correlation: the IC formula","Stationarity: use returns, not prices","Autocorrelation: momentum (positive) vs mean reversion (negative)"]},
+{ph:"Phase 5",t:"Performance metrics",items:["Sharpe: mean_excess_return / return_std × √252","Sortino: downside deviation replaces total deviation","Max drawdown: (equity − cummax) / cummax","Calmar: annualised return / max drawdown","Information ratio: excess return / tracking error","Rolling Sharpe: strategy decay detection","Transaction costs: spread + commission + impact ≥ 0.3% round-trip"]},
+{ph:"Phase 6",t:"Linear algebra & regression",items:["Vectors: stock features on one date = a vector of numbers","Dot products: basis of correlation computation","OLS regression: cross-sectional signal to return relationship","R-squared: how much variance the signal explains","Factor model: return = β × factor + α + noise","Fama-French attribution: is your alpha real?","PCA concept: use 3Blue1Brown YouTube, not a textbook"]},
+{ph:"Phase 7",t:"Portfolio mathematics",items:["Portfolio variance: w^T Σ w (not sum of individual variances)","Covariance matrix: what it captures and why it matters","Diversification: uncorrelated signals give √2 improvement","Kelly criterion: f = (bp − q) / b","Half-Kelly in practice: full Kelly creates unacceptable drawdowns"]},
+{ph:"Supplementary",t:"Advanced validation",items:["Block bootstrap: resample blocks of returns to get Sharpe confidence intervals","Walk-forward testing: multiple expanding train/test windows","Factor attribution OLS: regress strategy returns on FF factors","Beta check: rolling 60-day regression on SPY returns"]}
+];
+
+function phCard(p){
+return `<div class="card">
+<div class="ph">
+<div class="badge" style="background:${p.bg};color:${p.tc}">${p.num}</div>
+<div><div class="ptitle">${p.title}</div><div class="psub">${p.weeks}</div></div>
+</div>
+<p class="body-txt">${p.body}</p>
+${p.books.length?`<div class="slbl">Books</div><div>${p.books.map(b=>`<div class="book-row"><div class="btitle">${b.t} <span class="bauthor">— ${b.a}</span></div><div class="bnote">${b.n}</div></div>`).join('')}</div>`:''}
+${p.math.length?`<div class="slbl">Maths (parallel)</div><div class="pills">${p.math.map(m=>`<span class="pill pm">${m}</span>`).join('')}</div>`:''}
+${p.skills.length?`<div class="slbl">Skills to build</div><div class="pills">${p.skills.map(s=>`<span class="pill ps">${s}</span>`).join('')}</div>`:''}
+<div class="pbox"><div class="plbl">Project</div><div class="ptxt">${p.proj}</div><div class="ms"><i class="ti ti-circle-check"></i><span>Milestone: ${p.ms}</span></div></div>
+</div>`}
+
+function gapCard(g){
+return `<div class="gap-card">
+<div class="gap-title"><span class="gap-tag ${g.tagcls}">${g.tag}</span>${g.title}</div>
+<p class="gap-body">${g.body}</p>
+</div>`}
+
+function bookRow(b){
+return `<div class="card" style="padding:12px 1.25rem;margin-bottom:8px">
+<div style="font-size:13px;font-weight:500;color:var(--ct-primary)">${b.t}</div>
+<div style="font-size:12px;color:var(--ct-secondary);margin:2px 0">${b.a} · <span style="color:var(--ct-tertiary)">${b.ph}</span></div>
+<div style="font-size:12px;color:var(--ct-secondary);margin-top:4px;line-height:1.55">${b.d}</div>
+</div>`}
+
+function projRow(p){
+return `<div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px">
+<div style="width:26px;height:26px;border-radius:50%;background:var(--cb-secondary);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--ct-secondary);flex-shrink:0">${p.n}</div>
+<div><div style="font-size:13px;font-weight:500;color:var(--ct-primary)">${p.t} <span style="font-weight:400;font-size:11px;color:var(--ct-tertiary)">· ${p.ph}</span></div><div style="font-size:12px;color:var(--ct-secondary);margin-top:2px">${p.d}</div></div>
+</div>`}
+
+function mathCard(m){
+return `<div class="card" style="margin-bottom:10px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<div style="font-size:14px;font-weight:500;color:var(--ct-primary)">${m.t}</div>
+<span class="pill pm">${m.ph}</span>
+</div>
+${m.items.map(i=>`<div style="font-size:13px;color:var(--ct-secondary);display:flex;gap:8px;margin-bottom:4px"><span style="color:var(--ct-tertiary);flex-shrink:0">—</span>${i}</div>`).join('')}
+</div>`}
+
+document.getElementById('v-phases').innerHTML=P.map(phCard).join('');
+document.getElementById('v-gaps').innerHTML=`<p class="gaps-intro">These areas were missing from the original roadmap. Red = losing real money without knowing this. Orange = important but survivable to learn later. Green = learn when scaling.</p>`+GAPS.map(gapCard).join('');
+document.getElementById('v-books').innerHTML=BOOKS.map(bookRow).join('');
+document.getElementById('v-projects').innerHTML=PROJS.map(projRow).join('');
+document.getElementById('v-math').innerHTML=MATH.map(mathCard).join('');
+
+function show(id,btn){
+['phases','gaps','books','projects','math'].forEach(v=>{document.getElementById('v-'+v).style.display=v===id?'block':'none'});
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+btn.classList.add('active');
+}
+
+function toggleTheme(){
+const html=document.documentElement;
+const icon=document.getElementById('theme-icon');
+if(html.getAttribute('data-theme')==='light'){
+html.setAttribute('data-theme','dark');
+icon.className='ti ti-sun';
+}else{
+html.setAttribute('data-theme','light');
+icon.className='ti ti-moon-stars';
+}
+}
+</script>
+</body>
+</html>
